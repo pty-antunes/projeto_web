@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Underline:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #703d79;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left .logo {
+    width: 36px;
+    height: 36px;
+    box-shadow: 2px 2px 3px rgba(43, 43, 43, 0.151);
+    margin-right: 20px;
+}
+
+.navbar-left h1 {
+    font-size: 30px;
+    font-family: 'Montserrat Underline', sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.4);
+    margin: 0;
+}
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para as abas */
+.tab {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 10px;
+    background-color: inherit;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 12px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    text-transform: uppercase;
+    letter-spacing: 0.7px; 
+    text-shadow: 2px 2px 3px rgba(43, 43, 43, 0.4);
+  }
+
+.tab button:hover {
+  background-color: #9e48b1;
+}
+
+.tab button.active {
+  background-color: #652d72;
+}
+
+.container {
+    padding-block: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s;
+    border-radius: 20px;
+    display: block;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 2px 2px 3px rgba(43, 43, 43, 0.4);
+}
+
+.tabcontent h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #652d72;
+    font-family: 'Montserrat Underline', sans-serif;
+    font-weight: 800;
+    text-shadow: 2px 2px 1px rgba(43, 43, 43, 0.1);
+}
+
+/* Modal de Delete */
+#confirmDeleteModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+.modal-content h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-content p {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 103%;
+}
+
+#cancelDeleteBtn {
+    background-color: #652d72;
+    float:none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 12px;
+    padding: 9px 10px;
+    transition: 0.3s;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 12px; 
+    font-weight: 600; 
+    color: #ffffff; 
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+#cancelDeleteBtn:hover {
+    background-color: #8b459b;
+}
+
+#confirmDeleteBtn {
+    background-color: #dbdbdb;
+    float:right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 12px;
+    padding: 9px 10px;
+    transition: 0.3s;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 12px; 
+    font-weight: bold; 
+    color: #292929; 
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+#confirmDeleteBtn:hover {
+    background-color: #f5f5f5;
+}
+
+/*Message Model*/
+#message-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+#message-modal-text {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#message-modal .modal-content{
+    text-align: center;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+#message-modal.success .modal-content {
+    background-color: rgb(115, 207, 115); 
+}
+
+#message-modal.error .modal-content {
+    background-color: rgb(255, 157, 144);
+}
+
+
+.credits {
+    display: none;
+}
+
+/*Estilo Tab List*/
+.search-container {
+    display: flex;
+    align-items: center;
+    padding-inline: 55px;
+    box-sizing: border-box;
+}
+
+.search-container h2 {
+    font-size: 30px;
+    color: #652d72;
+    font-family: 'Montserrat Underline', sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px 1px rgba(43, 43, 43, 0.1);
+    padding-right: 20px;
+}
+
+/* Estilo do campo de pesquisa */
+.search-only {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    width: 100%; 
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 14px;
+    background-color: #f8f8f8;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.11);
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+    padding-left: 35px; 
+}
+
+#search:focus {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#search-icon {
+    position: absolute;
+    top: 20%;
+    left: 10px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+#search::placeholder {
+    color: #8888889d; 
+    font-style: italic; 
+    font-size: 14px;
+}
+
+/* Estilos para a lista de livros */
+#books {
+    list-style: none;
+    padding: 3px;
+}
+
+#books li {
+    margin: 1px 0;
+    padding: 1px;
+}
+
+#books-list {
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 900px; 
+}
+
+/* Estilos dos elementos dentro de li */
+.livro {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 15px; 
+    padding: 20px;
+    border-radius: 18px;
+    background-color: #f9f9f9; 
+    box-shadow: 2px 2px 3px rgba(99, 26, 99, 0.151);
+}
+
+.book-main {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 8px;
+}
+
+.book-details span {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.book-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #3a3a3a;
+}
+
+.book-author {
+    font-size: 15px;
+    font-weight: 700;
+    color: #9b9b9b;
+}
+
+.book-publisher {
+    font-size: 10px;
+    font-weight: 700;
+    color: #9b9b9b;
+    text-transform: uppercase;
+}
+
+.book-genre, .book-format {
+    font-size: 10px;
+    font-weight: 700;
+    color: #703d79;
+    text-transform: uppercase;
+}
+
+.book-status {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.book-details span:not(:last-child):not(.no-separator)::after {
+    content: " | ";
+    color: #ccc;
+    margin: 0 5px;
+}
+
+/* Estilizando os botões de ícones */
+.actions button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.actions button i {
+    color: #333;
+    font-size: 17px; 
+    transition: color 0.3s ease;
+}
+
+.actions button:hover i {
+    color: #863997; 
+}
+
+.actions button:nth-child(2) i {
+    color: #333;
+}
+
+.actions button:nth-child(2):hover i {
+    color: #f44336;
+}
+
+/* Estilos Tab Form */
+#form {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+
+#form h3 {
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 1px rgba(43, 43, 43, 0.123);
+}
+
+/* Estilo dos campos de formulário */
+label {
+    display: block;
+    width: 100%;
+    margin-bottom: 1px; 
+}
+
+/* Campos de input e select */
+input {
+    width: 100%;
+    color: #525252;
+    padding-bottom: 9px; 
+    font-size: 16px;
+    font-weight: 500;
+    border: none; 
+    border-bottom: 1px solid #9c9c9c; 
+    background: none;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #9e48b1;
+    outline: none;
+}
+
+
+select {
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px;
+    border: 0.5px solid #9c9c9c; 
+    border-radius: 20px; 
+    background-color: inherit; 
+    color: #4b4b4b; 
+    appearance: none;
+    outline: none;
+    transition: border-color 0.3s ease; 
+}
+
+select:focus {
+    border-color: #652d72;
+}
+
+option {
+    font-size: 13px;
+    font-weight: 400;
+    color: #525252;
+    background-color: #f8f8f8;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.control {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+}
+
+#submit-button {
+    padding: 12px 25px;
+    background-color: #652d72;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.7px; 
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+#submit-button:hover {
+    background-color: #9e48b1;
+}
+
+#cancel-button {
+    padding: 12px 25px;
+    background-color: #f44336;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 40%; 
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.7px; 
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+#cancel-button:hover {
+    background-color: #ff6461;
+}
+
+#outroGenero {
+    display: none;
+    width: 100%;
+}
+
+#genero {
+    width: 100%;
+}
+
+#genero option[value="outro"]:checked ~ #outroGenero {
+    display: block;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }

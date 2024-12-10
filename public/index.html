@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNook</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-left">
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <h1>booknook</h1>
+        </div>
+        <div class="tab">
+            <button class="tablinks" onclick="toggleTab(event, 'list')">Estante</button>
+            <button class="tablinks" onclick="toggleTab(event, 'form')">Novo Livro</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Formulário de Adicionar Livro -->
+        <div class="tabcontent" id="form" style="display: none">
+            <h2>novo livro</h2>
+            <form id="infos">
+                <input type="hidden" id="book-id">
+                <label>
+                    <h3>Título:</h3>
+                    <input type="text" id="titulo" autocomplete="off" required>
+                </label>
+                <label>
+                    <h3>Autor(a):</h3>
+                    <input type="text" id="autor" autocomplete="off">
+                </label>
+                <label>
+                    <h3>Editora:</h3>
+                    <input type="text" id="editora" autocomplete="off">
+                </label>
+                <label>
+                    <h3>Gênero:</h3>
+                    <select id="genero" name="genero" onchange="mostrarOutroGenero()">
+                        <option value="ficcao">Ficção</option>
+                        <option value="romance">Romance</option>
+                        <option value="tecnico">Técnico</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="biografia">Biografia</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </label>
+                <div id="outroGenero" style="display: none;">
+                    <label>
+                        <h3>Especifique o gênero:</h3>
+                        <input type="text" id="outro_genero" autocomplete="off"  name="outro_genero">
+                    </label>
+                </div>
+                <label>
+                    <h3>Formato:</h3>
+                    <select id="formato" name="formato">
+                        <option value="fisico">Físico</option>
+                        <option value="digital">Digital</option>
+                    </select>
+                </label>
+
+                <label>
+                    <h3>Status:</h3>
+                    <select id="status" name="status" required>
+                        <option value="não lido">Não lido</option>
+                        <option value="lido">Lido</option>
+                        <option value="lendo">Lendo</option>
+                        <option value="abandonado">Abandonado</option>
+                    </select>
+                </label>
+                <div class="control">
+                    <button id="cancel-button" type="button">Cancelar</button>
+                    <button type="submit" id="submit-button">Cadastrar</button>
+                </div>
+                </form>
+        </div>
+
+        <!-- Aba para Visualizar Livros -->
+        <div class="tabcontent" id="list" style="display: block;">
+            <div class="search-container">
+                <h2>estante</h2>
+                <div class="search-only">
+                    <i class="fas fa-search" id="search-icon"></i>
+                    <input type="text" id="search" placeholder="Pesquisar livros..." autocomplete="off" onkeyup="searchBooks()">
+                </div>
+                </div>
+            <ul id="books-list"></ul>
+
+            <!-- Modal de confirmação -->
+                <div id="confirmDeleteModal" class="modal">
+                    <div class="modal-content">
+                        <h4>Tem certeza que deseja excluir?</h4>
+                        <p>Essa ação não pode ser desfeita.</p>
+                        <div class="modal-actions">
+                            <button id="cancelDeleteBtn" class="btn cancel-btn">Cancelar</button>
+                            <button id="confirmDeleteBtn" class="btn confirm-btn">Sim, excluir</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Mensagem de Sucesso ou Erro -->
+        <div id="message-modal" class="modal">
+            <div class="modal-content">
+                <p id="message-modal-text"></p>
+            </div>
+        </div>
+
+
+
+    <script src="app.js"></script>
+    <div class="credits">
+        Ícone feitos por:
+        <a href="https://www.flaticon.com/br/autores/freepik" title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/br/" title="Flaticon">www.flaticon.com'</a>
+    </div>
+</body>
+</html>
