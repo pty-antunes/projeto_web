@@ -22,10 +22,10 @@ const testConnection = async () => {
 exports.query = async (_query, values) => {
   try {
     console.log("Query executada:", _query);
-    console.log("Valores:", values);  // Verifique se os valores estão corretos
+    console.log("Valores:", values);
 
     const [rows] = await client.execute(_query, values);
-    console.log("Resultado da consulta:", rows);  // Veja o que retorna
+    console.log("Resultado da consulta:", rows); 
     return rows;
   } catch (error) {
     console.error("Erro na consulta ao banco de dados:", error);
