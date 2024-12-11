@@ -128,7 +128,7 @@ form.addEventListener("submit", async (event) => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(book),
             });
-            submitButton.textContent = "Atualizar";
+            submitButton.textContent = "Cadastrar";
             bookIdInput.value = "";
             showMessage('Livro atualizado com sucesso!', 'success');
             console.log("Livro atualizado com sucesso!");
