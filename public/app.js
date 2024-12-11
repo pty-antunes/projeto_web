@@ -102,7 +102,7 @@ searchInput.addEventListener("input", searchBooks);
 document.getElementById("cancel-button").addEventListener("click", (event) => {
     form.reset();
     bookIdInput.value = "";
-    submitButton.textContent = "Atualizar";
+    submitButton.textContent = "Cadastrar";
     toggleTab(event, 'list');
 });
 
@@ -128,7 +128,7 @@ form.addEventListener("submit", async (event) => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(book),
             });
-            submitButton.textContent = "Cadastrar";
+            submitButton.textContent = "Atualizar";
             bookIdInput.value = "";
             showMessage('Livro atualizado com sucesso!', 'success');
             console.log("Livro atualizado com sucesso!");
