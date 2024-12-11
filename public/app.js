@@ -36,7 +36,7 @@ function toggleTab(event, currentTab) {
     event.currentTarget.classList.add("active");
 }
 
-// Função para buscar os livros
+// Listar os livros
 async function fetchBooks() {
     try {
         const response = await fetch(API_URL);
@@ -81,7 +81,7 @@ async function fetchBooks() {
     }
 }
 
-// Função para buscar livros com filtro
+// Buscar livros com filtro
 function searchBooks() {
     const query = searchInput.value.toLowerCase();
     const allBooks = document.querySelectorAll("#books-list li");
@@ -98,7 +98,7 @@ function searchBooks() {
 
 searchInput.addEventListener("input", searchBooks);
 
-// Função para cancelar a edição
+// Cancelar a edição
 document.getElementById("cancel-button").addEventListener("click", (event) => {
     form.reset();
     bookIdInput.value = "";
@@ -106,7 +106,7 @@ document.getElementById("cancel-button").addEventListener("click", (event) => {
     toggleTab(event, 'list');
 });
 
-// Função para salvar o livro (Cadastro ou Atualização)
+// Salvar o livro 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -153,7 +153,7 @@ form.addEventListener("submit", async (event) => {
     }
 });
 
-// Função para editar livro
+// Editar livro
 async function editBook(id) {
     console.log('Editar livro com ID:', id);
 
@@ -178,7 +178,7 @@ async function editBook(id) {
     }
 }
 
-// Função para mostrar o campo de "Outro Gênero"
+// "Outro Gênero"
 function mostrarOutroGenero() {
     const generoSelect = document.getElementById("genero");
     const outroGeneroDiv = document.getElementById("outroGenero");
@@ -190,13 +190,13 @@ function mostrarOutroGenero() {
     }
 }
 
-// Função para mostrar o modal de confirmação de exclusão
+// Modal de confirmação de exclusão
 function showDeleteModal(bookId) {
     currentBookId = bookId;
     modal.style.display = 'flex';
 }
 
-// Função para excluir o livro
+// Excluir o livro
 async function deleteBook() {
     try {
         await fetch(`${API_URL}/${currentBookId}`, {
@@ -212,7 +212,7 @@ async function deleteBook() {
 }
 
 
-// Função para fechar o modal
+// Fchar o modal
 function closeDeleteModal() {
     modal.style.display = 'none';
 }
@@ -222,13 +222,13 @@ document.addEventListener("DOMContentLoaded", fetchBooks);
 
 
 
-// Função para exibir a mensagem de sucesso ou erro
+// Exibir a mensagem de sucesso ou erro
 function showMessage(message, type = 'success') {
     const messageModal = document.getElementById("message-modal");
     const messageText = document.getElementById("message-modal-text");
 
     messageModal.classList.remove('success', 'error');
-    messageModal.classList.add(type);  // Adicionar a classe para definir o tipo de mensagem
+    messageModal.classList.add(type); 
 
     messageText.textContent = message;
     messageModal.style.display = 'block';
@@ -243,5 +243,3 @@ function showMessage(message, type = 'success') {
         }, 300);
     }, 2000); 
 }
-
-
